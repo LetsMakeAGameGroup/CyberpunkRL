@@ -44,42 +44,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": ""StickDeadzone,InvertVector2(invertX=false)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Jump"",
-                    ""type"": ""Button"",
-                    ""id"": ""6076c559-824b-40ca-bf30-40b7dc0f94bf"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""LookUp"",
-                    ""type"": ""Value"",
-                    ""id"": ""aca7dec6-4dcf-49ff-95ea-efe8408b57f7"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": ""Invert"",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""LookRight"",
-                    ""type"": ""Value"",
-                    ""id"": ""a1a317fa-3ade-466b-ab81-9129d9fe0481"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""LockTarget"",
-                    ""type"": ""Value"",
-                    ""id"": ""3759612b-c076-4ca5-baa5-e89d20fecc57"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -151,28 +115,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""86c1e86a-d76a-476e-80e1-5b4209ac1334"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8afc7e1a-b22d-4e5e-892b-7ecbf9102cd4"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""6f922bde-b543-43aa-a527-f348cd05a07c"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
@@ -192,70 +134,132 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""CharacterAbilities"",
+            ""id"": ""cba04f29-f981-4635-b29b-47f509e9828d"",
+            ""actions"": [
+                {
+                    ""name"": ""PrimarlyAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""09c55df8-46cf-49fb-b737-11c682b513ba"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""SecondaryAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""7eb916ab-3646-45a7-bb86-82d09cb92a1d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FirstAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""c04387f7-e635-4bba-8cbc-2a85ce966251"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SecondAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""9c1b126f-db4f-4628-ba1f-ad8f00ad8b77"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ThirdAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""5408ea06-d1e3-468e-92e8-6660db981bc2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UltimateAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""dbe27209-6283-4c6d-9322-7fc55d577aed"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
                     ""name"": """",
-                    ""id"": ""0a029d27-331b-4a9c-9558-30640974e293"",
-                    ""path"": ""<Mouse>/delta/y"",
+                    ""id"": ""1de42a33-f0d7-4de8-b7c8-c5984ff34e95"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""LookUp"",
+                    ""groups"": """",
+                    ""action"": ""PrimarlyAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""09ab69b4-1a49-4d7b-a969-7f809a5182e1"",
-                    ""path"": ""<Gamepad>/rightStick/y"",
+                    ""id"": ""6354c784-428e-4e80-be3e-bb0d5d3703d2"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""LookUp"",
+                    ""groups"": """",
+                    ""action"": ""SecondaryAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""51da63e8-8aa7-4d22-9179-f6788632251c"",
-                    ""path"": ""<Mouse>/delta/x"",
+                    ""id"": ""5f7a6c66-7293-4d53-8e2b-96560c5936ca"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""LookRight"",
+                    ""groups"": """",
+                    ""action"": ""FirstAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""0328aac9-c7c0-4e81-bb60-5b71b20ecd5a"",
-                    ""path"": ""<Gamepad>/rightStick/x"",
+                    ""id"": ""399ef8a7-b0ba-4a53-9b19-3a6505409d26"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""LookRight"",
+                    ""groups"": """",
+                    ""action"": ""SecondAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""48ed38d6-6429-4a3d-81f1-3967ff745e7d"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""id"": ""b67340b5-2a22-4f79-979b-cf5b953f86ed"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""LockTarget"",
+                    ""groups"": """",
+                    ""action"": ""ThirdAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""bf51076f-e2b5-40f3-befd-0b80b6214e74"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""id"": ""dcda6053-b517-4606-a48f-607a02ee56c3"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""LockTarget"",
+                    ""groups"": """",
+                    ""action"": ""UltimateAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -291,10 +295,14 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
-        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_LookUp = m_Player.FindAction("LookUp", throwIfNotFound: true);
-        m_Player_LookRight = m_Player.FindAction("LookRight", throwIfNotFound: true);
-        m_Player_LockTarget = m_Player.FindAction("LockTarget", throwIfNotFound: true);
+        // CharacterAbilities
+        m_CharacterAbilities = asset.FindActionMap("CharacterAbilities", throwIfNotFound: true);
+        m_CharacterAbilities_PrimarlyAbility = m_CharacterAbilities.FindAction("PrimarlyAbility", throwIfNotFound: true);
+        m_CharacterAbilities_SecondaryAbility = m_CharacterAbilities.FindAction("SecondaryAbility", throwIfNotFound: true);
+        m_CharacterAbilities_FirstAbility = m_CharacterAbilities.FindAction("FirstAbility", throwIfNotFound: true);
+        m_CharacterAbilities_SecondAbility = m_CharacterAbilities.FindAction("SecondAbility", throwIfNotFound: true);
+        m_CharacterAbilities_ThirdAbility = m_CharacterAbilities.FindAction("ThirdAbility", throwIfNotFound: true);
+        m_CharacterAbilities_UltimateAbility = m_CharacterAbilities.FindAction("UltimateAbility", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -358,20 +366,12 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
-    private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_LookUp;
-    private readonly InputAction m_Player_LookRight;
-    private readonly InputAction m_Player_LockTarget;
     public struct PlayerActions
     {
         private @PlayerInputs m_Wrapper;
         public PlayerActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
-        public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputAction @LookUp => m_Wrapper.m_Player_LookUp;
-        public InputAction @LookRight => m_Wrapper.m_Player_LookRight;
-        public InputAction @LockTarget => m_Wrapper.m_Player_LockTarget;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -387,18 +387,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
-            @Jump.started += instance.OnJump;
-            @Jump.performed += instance.OnJump;
-            @Jump.canceled += instance.OnJump;
-            @LookUp.started += instance.OnLookUp;
-            @LookUp.performed += instance.OnLookUp;
-            @LookUp.canceled += instance.OnLookUp;
-            @LookRight.started += instance.OnLookRight;
-            @LookRight.performed += instance.OnLookRight;
-            @LookRight.canceled += instance.OnLookRight;
-            @LockTarget.started += instance.OnLockTarget;
-            @LockTarget.performed += instance.OnLockTarget;
-            @LockTarget.canceled += instance.OnLockTarget;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -409,18 +397,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
-            @Jump.started -= instance.OnJump;
-            @Jump.performed -= instance.OnJump;
-            @Jump.canceled -= instance.OnJump;
-            @LookUp.started -= instance.OnLookUp;
-            @LookUp.performed -= instance.OnLookUp;
-            @LookUp.canceled -= instance.OnLookUp;
-            @LookRight.started -= instance.OnLookRight;
-            @LookRight.performed -= instance.OnLookRight;
-            @LookRight.canceled -= instance.OnLookRight;
-            @LockTarget.started -= instance.OnLockTarget;
-            @LockTarget.performed -= instance.OnLockTarget;
-            @LockTarget.canceled -= instance.OnLockTarget;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -438,6 +414,92 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // CharacterAbilities
+    private readonly InputActionMap m_CharacterAbilities;
+    private List<ICharacterAbilitiesActions> m_CharacterAbilitiesActionsCallbackInterfaces = new List<ICharacterAbilitiesActions>();
+    private readonly InputAction m_CharacterAbilities_PrimarlyAbility;
+    private readonly InputAction m_CharacterAbilities_SecondaryAbility;
+    private readonly InputAction m_CharacterAbilities_FirstAbility;
+    private readonly InputAction m_CharacterAbilities_SecondAbility;
+    private readonly InputAction m_CharacterAbilities_ThirdAbility;
+    private readonly InputAction m_CharacterAbilities_UltimateAbility;
+    public struct CharacterAbilitiesActions
+    {
+        private @PlayerInputs m_Wrapper;
+        public CharacterAbilitiesActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @PrimarlyAbility => m_Wrapper.m_CharacterAbilities_PrimarlyAbility;
+        public InputAction @SecondaryAbility => m_Wrapper.m_CharacterAbilities_SecondaryAbility;
+        public InputAction @FirstAbility => m_Wrapper.m_CharacterAbilities_FirstAbility;
+        public InputAction @SecondAbility => m_Wrapper.m_CharacterAbilities_SecondAbility;
+        public InputAction @ThirdAbility => m_Wrapper.m_CharacterAbilities_ThirdAbility;
+        public InputAction @UltimateAbility => m_Wrapper.m_CharacterAbilities_UltimateAbility;
+        public InputActionMap Get() { return m_Wrapper.m_CharacterAbilities; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CharacterAbilitiesActions set) { return set.Get(); }
+        public void AddCallbacks(ICharacterAbilitiesActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CharacterAbilitiesActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CharacterAbilitiesActionsCallbackInterfaces.Add(instance);
+            @PrimarlyAbility.started += instance.OnPrimarlyAbility;
+            @PrimarlyAbility.performed += instance.OnPrimarlyAbility;
+            @PrimarlyAbility.canceled += instance.OnPrimarlyAbility;
+            @SecondaryAbility.started += instance.OnSecondaryAbility;
+            @SecondaryAbility.performed += instance.OnSecondaryAbility;
+            @SecondaryAbility.canceled += instance.OnSecondaryAbility;
+            @FirstAbility.started += instance.OnFirstAbility;
+            @FirstAbility.performed += instance.OnFirstAbility;
+            @FirstAbility.canceled += instance.OnFirstAbility;
+            @SecondAbility.started += instance.OnSecondAbility;
+            @SecondAbility.performed += instance.OnSecondAbility;
+            @SecondAbility.canceled += instance.OnSecondAbility;
+            @ThirdAbility.started += instance.OnThirdAbility;
+            @ThirdAbility.performed += instance.OnThirdAbility;
+            @ThirdAbility.canceled += instance.OnThirdAbility;
+            @UltimateAbility.started += instance.OnUltimateAbility;
+            @UltimateAbility.performed += instance.OnUltimateAbility;
+            @UltimateAbility.canceled += instance.OnUltimateAbility;
+        }
+
+        private void UnregisterCallbacks(ICharacterAbilitiesActions instance)
+        {
+            @PrimarlyAbility.started -= instance.OnPrimarlyAbility;
+            @PrimarlyAbility.performed -= instance.OnPrimarlyAbility;
+            @PrimarlyAbility.canceled -= instance.OnPrimarlyAbility;
+            @SecondaryAbility.started -= instance.OnSecondaryAbility;
+            @SecondaryAbility.performed -= instance.OnSecondaryAbility;
+            @SecondaryAbility.canceled -= instance.OnSecondaryAbility;
+            @FirstAbility.started -= instance.OnFirstAbility;
+            @FirstAbility.performed -= instance.OnFirstAbility;
+            @FirstAbility.canceled -= instance.OnFirstAbility;
+            @SecondAbility.started -= instance.OnSecondAbility;
+            @SecondAbility.performed -= instance.OnSecondAbility;
+            @SecondAbility.canceled -= instance.OnSecondAbility;
+            @ThirdAbility.started -= instance.OnThirdAbility;
+            @ThirdAbility.performed -= instance.OnThirdAbility;
+            @ThirdAbility.canceled -= instance.OnThirdAbility;
+            @UltimateAbility.started -= instance.OnUltimateAbility;
+            @UltimateAbility.performed -= instance.OnUltimateAbility;
+            @UltimateAbility.canceled -= instance.OnUltimateAbility;
+        }
+
+        public void RemoveCallbacks(ICharacterAbilitiesActions instance)
+        {
+            if (m_Wrapper.m_CharacterAbilitiesActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ICharacterAbilitiesActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CharacterAbilitiesActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CharacterAbilitiesActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public CharacterAbilitiesActions @CharacterAbilities => new CharacterAbilitiesActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -460,9 +522,14 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
-        void OnLookUp(InputAction.CallbackContext context);
-        void OnLookRight(InputAction.CallbackContext context);
-        void OnLockTarget(InputAction.CallbackContext context);
+    }
+    public interface ICharacterAbilitiesActions
+    {
+        void OnPrimarlyAbility(InputAction.CallbackContext context);
+        void OnSecondaryAbility(InputAction.CallbackContext context);
+        void OnFirstAbility(InputAction.CallbackContext context);
+        void OnSecondAbility(InputAction.CallbackContext context);
+        void OnThirdAbility(InputAction.CallbackContext context);
+        void OnUltimateAbility(InputAction.CallbackContext context);
     }
 }

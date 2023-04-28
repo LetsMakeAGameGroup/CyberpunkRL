@@ -512,6 +512,7 @@ GameObject:
   - component: {fileID: 814220786}
   - component: {fileID: 814220787}
   - component: {fileID: 814220783}
+  - component: {fileID: 814220788}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -534,7 +535,7 @@ MonoBehaviour:
   MaxCollisionNum: 16
   CanDetectCollision: 1
   CollidingTrigger: 0
-  radius: 0.3
+  radius: 0.5
   LastCollisionInfo:
     LastOverlapped: {fileID: 0}
     otherPosition: {x: 0, y: 0, z: 0}
@@ -585,6 +586,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMesh: {fileID: 1884969080}
   cameraT: {fileID: 330585546}
+  characterAbilities:
+    primarlyAbility: {fileID: 814220788}
+    secondaryAbility: {fileID: 0}
+    firstAbility: {fileID: 0}
+    secondAbility: {fileID: 0}
+    thirdAbility: {fileID: 0}
+    ultimateAbility: {fileID: 0}
 --- !u!114 &814220787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,6 +615,21 @@ MonoBehaviour:
   canMoveInAir: 1
   airMovementMultiplier: 1
   velocity: {x: 0, y: 0, z: 0}
+--- !u!114 &814220788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814220782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bf1e1cde682e864ba606a863cea5a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityData: {fileID: 11400000, guid: 2e029d83c4ff86842a97a75c3cdf9708, type: 2}
+  bulletPrefab: {fileID: 5239443304378305779, guid: 33eced80938af22408965eca307ceb47,
+    type: 3}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

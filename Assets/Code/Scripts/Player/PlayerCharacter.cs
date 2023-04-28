@@ -9,13 +9,43 @@ public interface IPossesable
     void UnPosses();
 }
 
+[System.Serializable]
+public class PlayerCharacterAbilities 
+{
+    public Ability primarlyAbility;
+    public Ability secondaryAbility;
+    public Ability firstAbility;
+    public Ability secondAbility;
+    public Ability thirdAbility;
+    public Ability ultimateAbility;
+}
+
+public interface IPlayerCharacterAbilities 
+{
+    public Ability PrimaryAbility { get; }
+    public Ability SecondaryAbility { get; }
+    public Ability FirstAbility { get; }
+    public Ability SecondAbility { get; }
+    public Ability ThirdAbility { get; }
+    public Ability UltimateAbility { get; }
+}
+
 [RequireComponent(typeof(PlayerMovementComponent))]
-public class PlayerCharacter : Pawn
+public class PlayerCharacter : Pawn, IPlayerCharacterAbilities
 {
     public Transform playerMesh;
     public Transform cameraT;
     Animator animator;
     PlayerMovementComponent movementComponent;
+
+    [SerializeField] PlayerCharacterAbilities characterAbilities;
+
+    public Ability PrimaryAbility { get { return characterAbilities.primarlyAbility; } }
+    public Ability SecondaryAbility { get { return characterAbilities.secondaryAbility; } }
+    public Ability FirstAbility { get { return characterAbilities.firstAbility; } }
+    public Ability SecondAbility { get { return characterAbilities.secondAbility; } }
+    public Ability ThirdAbility { get { return characterAbilities.thirdAbility; } }
+    public Ability UltimateAbility { get { return characterAbilities.ultimateAbility; } }
 
     public void Awake()
     {
@@ -47,7 +77,24 @@ public class PlayerCharacter : Pawn
 
         if (controller != null && controller.PlayerInputsComponent != null)
         {
+            //Abilities Binding
+            controller.PlayerInputsComponent.CharacterAbilities.PrimarlyAbility.started += ctx => characterAbilities.primarlyAbility.TriggerAbility();
+            controller.PlayerInputsComponent.CharacterAbilities.PrimarlyAbility.canceled += ctx => characterAbilities.primarlyAbility.EndAbility();
 
+            controller.PlayerInputsComponent.CharacterAbilities.SecondaryAbility.started += ctx => characterAbilities.secondaryAbility.TriggerAbility();
+            controller.PlayerInputsComponent.CharacterAbilities.SecondaryAbility.canceled += ctx => characterAbilities.secondaryAbility.EndAbility();
+
+            controller.PlayerInputsComponent.CharacterAbilities.FirstAbility.started += ctx => characterAbilities.firstAbility.TriggerAbility();
+            controller.PlayerInputsComponent.CharacterAbilities.FirstAbility.canceled += ctx => characterAbilities.firstAbility.EndAbility();
+
+            controller.PlayerInputsComponent.CharacterAbilities.SecondAbility.started += ctx => characterAbilities.secondAbility.TriggerAbility();
+            controller.PlayerInputsComponent.CharacterAbilities.SecondAbility.canceled += ctx => characterAbilities.secondAbility.EndAbility();
+
+            controller.PlayerInputsComponent.CharacterAbilities.ThirdAbility.started += ctx => characterAbilities.thirdAbility.TriggerAbility();
+            controller.PlayerInputsComponent.CharacterAbilities.ThirdAbility.canceled += ctx => characterAbilities.thirdAbility.EndAbility();
+
+            controller.PlayerInputsComponent.CharacterAbilities.UltimateAbility.started += ctx => characterAbilities.ultimateAbility.TriggerAbility();
+            controller.PlayerInputsComponent.CharacterAbilities.UltimateAbility.canceled += ctx => characterAbilities.ultimateAbility.EndAbility();
         }
     }
 
@@ -63,9 +110,7 @@ public class PlayerCharacter : Pawn
 
     void AddMovementInput(Vector2 MoveInput) 
     {
-        Debug.Log("Moving!");
-
-        if(movementComponent == null) { return; }
+        if(movementComponent == null || MoveInput == Vector2.zero) { return; }
 
         Vector3 DesireDirection = new Vector3(MoveInput.x, 0, MoveInput.y);
         DesireDirection = transform.TransformDirection(DesireDirection);
