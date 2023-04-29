@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 903ae9c18c359fb499b20de20e829a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pawnToPosses: {fileID: 814220786}
+  pawnToPosses: {fileID: 0}
 --- !u!4 &333490935
 Transform:
   m_ObjectHideFlags: 0

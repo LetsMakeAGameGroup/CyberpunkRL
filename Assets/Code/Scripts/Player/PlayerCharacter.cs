@@ -51,11 +51,19 @@ public class PlayerCharacter : Pawn, IPlayerCharacterAbilities
     {
         movementComponent = GetComponent<PlayerMovementComponent>();
         animator = GetComponentInChildren<Animator>();
+
+        if (cameraT == null) 
+        {
+            cameraT = Camera.main.transform;
+        }
     }
 
     private void Update()
     {
-        AddMovementInput(controller.PlayerInputsComponent.Player.Move.ReadValue<Vector2>());
+        if (controller != null && controller.PlayerInputsComponent != null)
+        {
+            AddMovementInput(controller.PlayerInputsComponent.Player.Move.ReadValue<Vector2>());
+        }
 
         //playerMesh.rotation = Quaternion.LookRotation(cameraT.up, cameraT.forward);
         playerMesh.rotation = Quaternion.LookRotation(cameraT.forward, cameraT.up);
@@ -66,8 +74,8 @@ public class PlayerCharacter : Pawn, IPlayerCharacterAbilities
 
         if (inputOnFrame != Vector3.zero)
         {
-            animator.SetFloat("Horizontal", inputOnFrame.x);
-            animator.SetFloat("Vertical", inputOnFrame.z);
+            animator?.SetFloat("Horizontal", inputOnFrame.x);
+            animator?.SetFloat("Vertical", inputOnFrame.z);
         }
     }
 
