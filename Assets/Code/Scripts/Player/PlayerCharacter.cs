@@ -31,7 +31,7 @@ public interface IPlayerCharacterAbilities
 }
 
 [RequireComponent(typeof(PlayerMovementComponent))]
-public class PlayerCharacter : Pawn, IPlayerCharacterAbilities
+public class PlayerCharacter : Pawn, IPlayerCharacterAbilities, IAbilityUser
 {
     public Transform playerMesh;
     public Transform cameraT;
@@ -47,6 +47,8 @@ public class PlayerCharacter : Pawn, IPlayerCharacterAbilities
     public Ability ThirdAbility { get { return characterAbilities.thirdAbility; } }
     public Ability UltimateAbility { get { return characterAbilities.ultimateAbility; } }
 
+    public Transform UserTransform { get { return transform; } }
+
     public void Awake()
     {
         movementComponent = GetComponent<PlayerMovementComponent>();
@@ -56,6 +58,14 @@ public class PlayerCharacter : Pawn, IPlayerCharacterAbilities
         {
             cameraT = Camera.main.transform;
         }
+
+        //Initialize all Abilities
+        PrimaryAbility.InitializeAbility(this);
+        SecondaryAbility.InitializeAbility(this);
+        FirstAbility.InitializeAbility(this);
+        SecondAbility.InitializeAbility(this);
+        ThirdAbility.InitializeAbility(this);
+        UltimateAbility.InitializeAbility(this);
     }
 
     private void Update()

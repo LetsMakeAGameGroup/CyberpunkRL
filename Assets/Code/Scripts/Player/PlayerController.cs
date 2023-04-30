@@ -13,7 +13,10 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerInputs = new PlayerInputs();
-        pawnToPosses.Posses(this);
+        playerInputs.Enable();
+        SetUpPlayerControllerInputs();
+
+        pawnToPosses?.Posses(this);
     }
 
     private void OnEnable()
