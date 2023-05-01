@@ -49,7 +49,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""name"": ""MousePosition"",
                     ""type"": ""Value"",
                     ""id"": ""29c7c9c7-6ca7-4669-aa0d-3b0322307997"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Vector3"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -150,7 +150,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""MousePosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

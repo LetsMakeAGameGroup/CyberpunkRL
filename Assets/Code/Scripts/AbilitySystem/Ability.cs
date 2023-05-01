@@ -13,7 +13,7 @@ public interface IAbilityUser
 {
     Transform UserTransform { get; }
     bool CastingAbility { get; set; }
-    Vector2 MousePosition { get; }
+    Vector3 CursorPosition { get; }
 }
 
 public abstract class Ability : MonoBehaviour
@@ -27,15 +27,22 @@ public abstract class Ability : MonoBehaviour
     public OnAbilityUse onAbilityUse = new OnAbilityUse();
 
     [Header("Ability Info")]
-    public string abilityManaCost;
+    public int abilityManaCost;
     public float abilityCooldownTime = 1;
+    public float requireCastTime = 0;
+    public bool canBeCancelled;
+
+    [Space][Space][Space]
+
+    public bool canBeRecasted;
+    public int maxRecastTime;
+    
+    [Space][Space][Space]
+
+    private int timesRecasted = 0;
+    private bool canUseAbility = true;
 
     [SerializeField] AbilityData abilityData;
-    bool requireCharge;
-    public int maxRecastTime;
-    private int timesRecasted = 0;
-    public bool canBeRecasted;
-    private bool canUseAbility = true;
 
     public void InitializeAbility(IAbilityUser user)
     {
@@ -87,5 +94,21 @@ public abstract class Ability : MonoBehaviour
             yield return new WaitForSeconds(abilityCooldownTime);
             canUseAbility = true;
         }
+    }
+
+    protected void StartCastTime() 
+    {
+        StartCoroutine(CastTimer());
+
+        IEnumerator CastTimer()
+        {
+            yield return new WaitForSeconds(requireCastTime);
+
+        }
+    }
+
+    public virtual void CancelAbility() 
+    {
+        if (!canBeCancelled) { return; }
     }
 }

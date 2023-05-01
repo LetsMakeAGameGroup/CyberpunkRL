@@ -52,7 +52,8 @@ public class PlayerCharacter : Pawn, IPlayerCharacterAbilities, IAbilityUser
     private bool castingAbility;
     public bool CastingAbility { get { return castingAbility; } set { castingAbility = value; } }
 
-    public Vector2 MousePosition { get { return GetMousePosition(); } }
+    public Vector3 CursorPosition { get { return GetCursorPosition(); } }
+
 
     public void Awake()
     {
@@ -143,10 +144,13 @@ public class PlayerCharacter : Pawn, IPlayerCharacterAbilities, IAbilityUser
         movementComponent.ReceiveInput(DesireDirection);
     }
 
-    public Vector2 GetMousePosition() 
+    public Vector3 GetCursorPosition() 
     {
-        if(controller == null || controller.PlayerInputsComponent != null) { return Vector2.zero; }
+        if(controller == null || controller.PlayerInputsComponent == null) 
+        {
+            return Vector2.zero; 
+        }
 
-        return controller.PlayerInputsComponent.Player.MousePosition.ReadValue<Vector2>();
+        return controller.CursorPos;
     }
 }
