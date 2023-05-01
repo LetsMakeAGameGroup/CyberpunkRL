@@ -15,8 +15,7 @@ public class TakeAim : Ability
 
     void SpawnProjectiles() 
     {
-        Rigidbody bullet = Instantiate(bulletPrefab).GetComponent<Rigidbody>();
-        bullet.AddForce(bullet.transform.forward * 1000);
+        
     }
 
     public override void EndAbility()

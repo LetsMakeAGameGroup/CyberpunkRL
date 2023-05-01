@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 903ae9c18c359fb499b20de20e829a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pawnToPosses: {fileID: 0}
+  pawnToPosses: {fileID: 814220786}
 --- !u!4 &333490935
 Transform:
   m_ObjectHideFlags: 0
@@ -627,7 +627,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf1e1cde682e864ba606a863cea5a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityTargetType: 0
+  abilityTargetingUI: {fileID: 0}
+  abilityManaCost: 
+  abilityCooldownTime: 1
   abilityData: {fileID: 11400000, guid: 2e029d83c4ff86842a97a75c3cdf9708, type: 2}
+  maxRecastTime: 0
+  canBeRecasted: 0
   bulletPrefab: {fileID: 5239443304378305779, guid: 33eced80938af22408965eca307ceb47,
     type: 3}
 --- !u!1 &832575517

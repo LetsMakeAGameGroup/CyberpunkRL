@@ -49,6 +49,11 @@ public class PlayerCharacter : Pawn, IPlayerCharacterAbilities, IAbilityUser
 
     public Transform UserTransform { get { return transform; } }
 
+    private bool castingAbility;
+    public bool CastingAbility { get { return castingAbility; } set { castingAbility = value; } }
+
+    public Vector2 MousePosition { get { return GetMousePosition(); } }
+
     public void Awake()
     {
         movementComponent = GetComponent<PlayerMovementComponent>();
@@ -60,19 +65,21 @@ public class PlayerCharacter : Pawn, IPlayerCharacterAbilities, IAbilityUser
         }
 
         //Initialize all Abilities
-        PrimaryAbility.InitializeAbility(this);
-        SecondaryAbility.InitializeAbility(this);
-        FirstAbility.InitializeAbility(this);
-        SecondAbility.InitializeAbility(this);
-        ThirdAbility.InitializeAbility(this);
-        UltimateAbility.InitializeAbility(this);
+        PrimaryAbility?.InitializeAbility(this);
+        SecondaryAbility?.InitializeAbility(this);
+        FirstAbility?.InitializeAbility(this);
+        SecondAbility?.InitializeAbility(this);
+        ThirdAbility?.InitializeAbility(this);
+        UltimateAbility?.InitializeAbility(this);
     }
 
     private void Update()
     {
         if (controller != null && controller.PlayerInputsComponent != null)
         {
-            AddMovementInput(controller.PlayerInputsComponent.Player.Move.ReadValue<Vector2>());
+            if (!castingAbility) { AddMovementInput(controller.PlayerInputsComponent.Player.Move.ReadValue<Vector2>()); }
+
+           
         }
 
         //playerMesh.rotation = Quaternion.LookRotation(cameraT.up, cameraT.forward);
@@ -134,5 +141,12 @@ public class PlayerCharacter : Pawn, IPlayerCharacterAbilities, IAbilityUser
         DesireDirection = transform.TransformDirection(DesireDirection);
 
         movementComponent.ReceiveInput(DesireDirection);
+    }
+
+    public Vector2 GetMousePosition() 
+    {
+        if(controller == null || controller.PlayerInputsComponent != null) { return Vector2.zero; }
+
+        return controller.PlayerInputsComponent.Player.MousePosition.ReadValue<Vector2>();
     }
 }
