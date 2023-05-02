@@ -9,7 +9,9 @@ public class CheckCastingSpell : Node {
     //private Animator animator;
 
     public CheckCastingSpell(Transform _transform) {
-        spell = _transform.GetComponent<SpellBase>();
+        if (!_transform.TryGetComponent(out spell)) {
+            Debug.LogError("Could not retrieve SpellBase.", _transform);
+        }
         //animator = transform.GetComponent<Animator>();
     }
 

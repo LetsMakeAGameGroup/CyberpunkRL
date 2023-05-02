@@ -6,16 +6,18 @@ public class Health : MonoBehaviour {
     [SerializeField] private RectTransform healthRect;
     private float healthRectWidth = 1920f;
 
-    [SerializeField] private int maxHealh;
-    private int currentHealth;
+    [SerializeField] private float maxHealth;
+    private float currentHealth;
+
+    [SerializeField] private float damageTaken = 1f;  // 1 means you take the entire damage while 0 means you take no damage
 
     private void Awake() {
-        currentHealth = 100;
+        currentHealth = maxHealth;
         healthRectWidth = healthRect.sizeDelta.x;
     }
 
-    public bool TakeDamage(int damage) {
-        currentHealth -= damage;
+    public bool TakeDamage(float damage) {
+        currentHealth -= (damage * damageTaken);
         if (currentHealth <= 0) {
             Die();
             Debug.Log("Player is now dead");
@@ -23,11 +25,15 @@ public class Health : MonoBehaviour {
             return true;
         }
         Debug.Log("Player is now at " + currentHealth + " health.");
-        healthRect.sizeDelta = new Vector2((healthRectWidth/maxHealh)*currentHealth, healthRect.sizeDelta.y);
+        healthRect.sizeDelta = new Vector2((healthRectWidth/maxHealth)*currentHealth, healthRect.sizeDelta.y);
         return false;
     }
 
     private void Die() {
         Destroy(gameObject);
+    }
+
+    public void SetDamageTakenPerc(float damageReduction) {
+        damageTaken = 1f - damageReduction;
     }
 }

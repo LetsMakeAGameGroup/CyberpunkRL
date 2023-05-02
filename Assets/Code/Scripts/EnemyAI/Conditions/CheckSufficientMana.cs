@@ -14,12 +14,12 @@ public class CheckSufficientMana : Node {
     }
 
     public override NodeState Evaluate() {
-        if (!transform.TryGetComponent(out Mana mana) || !transform.TryGetComponent(out SpellBase spell)) {
+        if (!transform.TryGetComponent(out Mana mana)) {
             state = NodeState.FAILURE;
             return state;
         }
 
-        if (mana.HasSufficientMana(spell.manaCost)) {
+        if (mana.HasSufficientMana()) {
             state = NodeState.SUCCESS;
             return state;
         }

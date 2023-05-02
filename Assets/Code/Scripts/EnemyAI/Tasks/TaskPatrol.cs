@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 using BehaviorTree;
-using static UnityEngine.GraphicsBuffer;
-using UnityEngine.AI;
-using ModestTree;
 
 public class TaskPatrol : Node {
     private Transform transform;
@@ -47,9 +43,9 @@ public class TaskPatrol : Node {
                 currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
                 //animator.SetBool("Walking", false);
             } else {
-                transform.GetComponent<NavMeshAgent>().speed = EnemyBT.speed;
+                transform.GetComponent<NavMeshAgent>().speed = transform.GetComponent<BehaviorTree.Tree>().speed;
                 transform.GetComponent<NavMeshAgent>().destination = wp;
-                //transform.position = Vector3.MoveTowards(transform.position, wp.position, EnemyBT.speed * Time.deltaTime);
+                //transform.position = Vector3.MoveTowards(transform.position, wp.position, transform.GetComponent<BehaviorTree.Tree>().speed * Time.deltaTime);
                 //transform.LookAt(wp.position);
             }
         }

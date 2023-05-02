@@ -5,16 +5,21 @@ public class CheckTargetInFOVRange : Node {
     private LayerMask objectLayerMask;
 
     private Transform transform;
+
+    private BehaviorTree.Tree tree;
     //private Animator animator;
 
     public CheckTargetInFOVRange(Transform _transform, LayerMask _objectLayerMask) {
         transform = _transform;
         objectLayerMask = _objectLayerMask;
+        if (!_transform.TryGetComponent(out tree)) {
+            Debug.LogError("Could not retrieve Tree.", _transform);
+        }
         //animator = transform.GetComponent<Animator>();
     }
 
     public override NodeState Evaluate() {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, EnemyBT.fovRange, objectLayerMask);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, tree.fovRange, objectLayerMask);
 
         if (colliders.Length > 0) {
             int closestCollider = 0;

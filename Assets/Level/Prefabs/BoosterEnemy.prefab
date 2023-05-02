@@ -182,7 +182,7 @@ RectTransform:
   m_GameObject: {fileID: 3602513195507820430}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
+  m_LocalScale: {x: 0.003, y: 0.003, z: 0.003}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3602513195461386799}
@@ -527,7 +527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3602513196140613873}
-  - component: {fileID: 3602513196140613878}
+  - component: {fileID: 1982075431024174013}
   - component: {fileID: 3602513196140613877}
   - component: {fileID: 3602513196140613876}
   - component: {fileID: 3602513196140613834}
@@ -536,8 +536,8 @@ GameObject:
   - component: {fileID: 3602513196140613875}
   - component: {fileID: 3602513196140613874}
   - component: {fileID: 3602513196140613879}
-  m_Layer: 0
-  m_Name: AI Enemy
+  m_Layer: 7
+  m_Name: BoosterEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -552,7 +552,7 @@ Transform:
   m_GameObject: {fileID: 3602513196140613885}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3602513195626081289}
@@ -560,7 +560,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3602513196140613878
+--- !u!114 &1982075431024174013
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -572,6 +572,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08746c15f58282d439a98df5baf3e3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 4
+  fovRange: 6
+  attackRange: 2
+  attackDamage: 5
+  spellRange: 4
 --- !u!114 &3602513196140613877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,8 +590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manaRect: {fileID: 3602513195874193404}
-  maxMana: 100
-  manaPerSec: 10
+  maxMana: 10
 --- !u!114 &3602513196140613876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,7 +604,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthRect: {fileID: 3602513195171617993}
-  maxHealh: 100
+  maxHealth: 0
+  damageTaken: 1
 --- !u!114 &3602513196140613834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -613,9 +618,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f799b1de45ca8448a9e552a73932012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manaCost: 100
-  cooldown: 5
-  currentTimer: 0
   isCastingSpell: 0
   thrustSpeed: 7
 --- !u!114 &3602513196140613835

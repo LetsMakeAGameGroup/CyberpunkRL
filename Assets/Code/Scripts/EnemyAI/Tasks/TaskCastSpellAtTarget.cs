@@ -5,9 +5,11 @@ using UnityEngine;
 using BehaviorTree;
 using UnityEngine.AI;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
+using UnityEngine.UIElements;
 
 public class TaskCastSpellAtTarget : Node {
-    private Animator animator;
+    //private Animator animator;
     private Mana mana;
     private SpellBase spell;
     private NavMeshAgent agent;
@@ -19,10 +21,16 @@ public class TaskCastSpellAtTarget : Node {
     private float attackCounter = 0f;
 
     public TaskCastSpellAtTarget(Transform transform) {
-        animator = transform.GetComponent<Animator>();
-        mana = transform.GetComponent<Mana>();
-        spell = transform.GetComponent<SpellBase>();
-        agent = transform.GetComponent<NavMeshAgent>();
+        //animator = transform.GetComponent<Animator>();
+        if (!transform.TryGetComponent(out mana)) {
+            Debug.LogError("Could not retrieve Mana.", transform);
+        }
+        if (!transform.TryGetComponent(out spell)) {
+            Debug.LogError("Could not retrieve SpellBase.", transform);
+        }
+        if (!transform.TryGetComponent(out agent)) {
+            Debug.LogError("Could not retrieve NavMeshAgent.", transform);
+        }
     }
 
     public override NodeState Evaluate() {
@@ -39,7 +47,9 @@ public class TaskCastSpellAtTarget : Node {
             //parent.SetData("spellEndPos", target);
         }
 
-        if (agent.destination != null) agent.ResetPath();
+        if (agent.destination != null) {
+            agent.ResetPath();
+        }
 
         Debug.Log("Cast spell from BT");
         spell.InitiateSpellCast(target);
